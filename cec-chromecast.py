@@ -19,10 +19,10 @@ app = str(applist.group(1))
 #Dashboard app_id on chromecast
 dash = str("E8C28D3C")
 
-#Switch to SHSDashboard if chromecast is at dash.
+#Do something if chromecast is at dash.
 if app == dash:
 
-        #Send hexcode to TV  so it can switch back to hdmi port4 (SHSDash)
+        #Send hexcode to TV via CEC-client (Switches hdmi port)
         os.system('echo "tx 4f:82:40:00" | cec-client -s')
 
 #Print app_id for current app
