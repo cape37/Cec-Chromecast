@@ -8,7 +8,7 @@ import os
 
 #Get info from chromecast
 chromecasts = pychromecast.get_chromecasts()
-cast = next(cc for cc in chromecasts if cc.device.friendly_name == "SHSChromecastTV")
+cast = next(cc for cc in chromecasts if cc.device.friendly_name == "ChromecastName") #Change ChromcastName
 status = str(cast.status)
 
 #Regex the info from chromecast
@@ -23,7 +23,7 @@ dash = str("E8C28D3C")
 if app == dash:
 
         #Send hexcode to TV via CEC-client (Switches hdmi port)
-        os.system('echo "tx 4f:82:40:00" | cec-client -s')
+        os.system('echo "tx 4f:82:40:00" | cec-client -s') #Adjust hex code to your tv
 
 #Print app_id for current app
 print(app)
