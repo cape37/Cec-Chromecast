@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<head>
+    <style type="text/css">
+	@media only screen 
+	  and (min-width: 992px)
+	  and (max-width: 1199px) {
+	    body { font-size: 14pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-width: 768px)
+	  and (max-width: 991px) {
+            body { font-size: 14pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-width: 480px)
+	  and (max-width: 767px) {
+            body { font-size: 11pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (max-width: 479px) {
+            body { font-size: 8pt; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+	@media only screen 
+	  and (min-device-width : 375px) 
+	  and (max-device-width : 667px) {
+            body { font-size: 9.5pt; }
+            div.content { width: 96ex; margin: 0 1px; }
+        }
+	@media only screen 
+	  and (min-device-width: 1200px) {
+            body { font-size: 10pt; margin: 0 4em; }
+            div.content { width: 96ex; margin: 0 auto; }
+        }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	    font-weight: bold;
+            line-height: 0pt;
+            display: inline;
+            white-space: pre;
+            font-family: monospace;
+            font-size: 1em;
+	    font-weight: bold;
+        }
+        pre {
+            font-size: 1em;
+            margin-top: 0px;
+            margin-bottom: 0px;
+	    /* This makes click-drag text selection hard in Safari: */
+	    /* display: inline-block; */
+        }
+	.pre {
+	    white-space: pre;
+	    font-family: monospace;
+	}
+	.header{
+	    font-weight: bold;
+	}
+        .newpage {
+            page-break-before: always;
+        }
+        .invisible {
+            text-decoration: none;
+            color: white;
+        }
+        a.selflink {
+          color: black;
+          text-decoration: none;
+        }
+        @media print {
+            body {
+                font-family: monospace;
+                font-size: 10.5pt;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 1em;
+            }
+        
+            a:link, a:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+            .noprint {
+                display: none;
+            }
+        }
+	@media screen {
+	    .grey, .grey a:link, .grey a:visited {
+		color: #777;
+	    }
+            .docinfo {
+                background-color: #EEE;
+            }
+            .top {
+                border-top: 7px solid #EEE;
+            }
+            .bgwhite  { background-color: white; }
+            .bgred    { background-color: #F44; }
+            .bggrey   { background-color: #666; }
+            .bgbrown  { background-color: #840; }            
+            .bgorange { background-color: #FA0; }
+            .bgyellow { background-color: #EE0; }
+            .bgmagenta{ background-color: #F4F; }
+            .bgblue   { background-color: #66F; }
+            .bgcyan   { background-color: #4DD; }
+            .bggreen  { background-color: #4F4; }
+
+            .legend   { font-size: 90%; }
+            .cplate   { font-size: 70%; border: solid grey 1px; }
+	}
+    </style>
+</head>
+<body onload="addHeaderTags()">
+  <div class="content">
+   <div style="height: 13px;">
+      <div onmouseover="this.style.cursor='pointer';"
+         onclick="showElem('legend');"
+         onmouseout="hideElem('legend')"
+	 style="height: 6px; position: absolute;"
+         class="pre noprint docinfo bgmagenta"
+         title="Click for colour legend." >                                                                        </div>
+      <div id="legend"
+           class="docinfo noprint pre legend"
+           style="position:absolute; top: 4px; left: 4ex; visibility:hidden; background-color: white; padding: 4px 9px 5px 7px; border: solid #345 1px; "
+           onmouseover="showElem('legend');"
+           onmouseout="hideElem('legend');">
+      </div>
+   </div>
+<span class="pre noprint docinfo top">[<a href="../html/" title="Document search and retrieval page">Docs</a>] [<a href="/rfc/rfc1918.txt" title="Plaintext version of this document">txt</a>|<a href="/pdf/rfc1918" title="PDF version of this document">pdf</a>] [<a href="./draft-ietf-cidrd-private-addr" title="draft-ietf-cidrd-private-addr">draft-ietf-cidr...</a>] [<a href='https://datatracker.ietf.org/doc/rfc1918' title='IESG Datatracker information for this document'>Tracker</a>] [<a href="/rfcdiff?difftype=--hwdiff&amp;url2=rfc1918" title="Inline diff (wdiff)">Diff1</a>] [<a href="/rfcdiff?url2=rfc1918" title="Side-by-side diff">Diff2</a>] [<a href="https://www.rfc-editor.org/errata_search.php?rfc=1918">Errata</a>]</span><br />
+<span class="pre noprint docinfo">                                                                        </span><br />
+<span class="pre noprint docinfo">Updated by: <a href="./rfc6761">6761</a>                                   BEST CURRENT PRACTICE</span><br />
+<span class="pre noprint docinfo">                                                            <span style='color: #C00;'>Errata Exist</span></span><br />
+<pre>
+Network Working Group                                     Microsoft INC.
+Request for Comments: 1651           Studentnätet vid Högskolan i Skövde
+Obsoletes: <a href="./rfc1458">1458</a>, <a href="./rfc1397">1397</a>                                          S. Taggen
+BCP: 5                                                           Absolut
+Category: Best Current Practice                              Estrella AB
+                                                          Norrlands Guld
+                                                           Systembolaget
+                                                           December 1337
+
+
+                <span class="h1">Optimal working condition </span>
+
+Status of this Memo
+
+   This document specifies an Internet Best Current Practices for the
+   Internet Community, and requests discussion and suggestions for
+   improvements.  Distribution of this memo is unlimited.
+
+<span class="h2"><a class="selflink" name="section-1" href="#section-1">1</a>. Introduction</span>
+
+   For the purposes of this document, an fylleconf is the method of 
+   configurating networking equipment & IT Systems but also programing
+   under heavy influence of alcohol with the purpose of reching 
+   ballmer peak working condition. 
+   
+   The ballmer peak was discoverd by microsoft in the late 80's. 
+   The casue is unkown, But somehow a BAC. Between 0.129% and 
+   0.138% confers superhuman programing and configration ability.
+
+   This document describes fylleconf and how to stay at the ballmer
+   peak for longer durations of time with minimal side effects and 
+   how to optimize and manage a group of individuals at the 
+   ballmer peak. But also how to the ultimate path to ballmers peak 
+   and getting drifting indviduals back to to ballmers peak. 
+
+<span class="h2"><a class="selflink" name="section-2" href="#section-2">2</a>. Motivation</span>
+
+   The requirments for configuration & programing have reached beyond 
+   anyones expectaion. The ammount of time and skill required to 
+   search and copy from stackoverflow(SO) and stackexchange(SE) 
+   have multiplied over a 100x times over just a few years and is 
+   expected to keep rising. This puts absurd level of pressure 
+   and stress on indivduals working in the field. 
+   
+   The only possibile solution to this problem is reducing the reliance 
+   of SE & SO. This requiers original configuration and programing. 
+   Completley without copying. This is simply inhuman and impossible 
+   without external help.
+   
+   For the survival of IT as a whole we can't stress enough about the 
+   importance of Implementing fylleocnf as the norm in IT. 
+   
+   1 hour fylleconf of usualy generates the same amount of OG code 
+   that the same individual would make in 40 hours of configuration.
+   
+
+
+<span class="grey">Rekhter, et al           Best Current Practice                  [Page 1]</span></pre>
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-2" id="page-2" href="#page-2" class="invisible"> </a>
+<span class="grey"><a href="./rfc1918">RFC 1651</a>        Fylleconf</span>
+
+<span class="h2"><a class="selflink" name="section-2" href="#section-2">2</a>. Planning</span>
+
+   A usual fylleconf lasts for 12 hours with 8-10 hours of effective 
+   work at ballmers peak. The recomendation is to start around 18:00
+   and ends at 6:00. This is the estimated norm but there will be some 
+   calibration needed for eatch individual. 
+   
+   Getting experinced can take alot of time and trail and error. 
+   Usally it takes an individual around two years of experince for the
+   abillity to manage his alcohol intake for optimal time at ballmers 
+   peak. When using inexperinced fylleconfare it is recomended to have 
+   a manager checking the alcohol level using a dräger. To make sure they 
+   and then use his experince to reduce or incresse the intake. 
+   During a individuls first fylleconfs a dual pipe drinking hat can be
+   used. Where the manager controls all intake by pouring the alcohol 
+   into the hat. 
+   
+   Automation we have started to se a trend automating fylleconf using a 
+   dualpipe drinking hat & fishtank pumps contolled by blockchain cloud AI.
+   With an IoT alchol blood test attached to the individual. Many simple
+   ones can be find on ebay for less then $10 000. Thesse can only mix 
+   mountan dew and vodka. That is suffefienct for most individuals. 
+   But more advanced models allows for swapping the ingredients and 
+   optimizing fore more individuals. But when looking at advanced models.
+   Be careful since many require proprietary mixers. 
+
+
+
+<span class="grey">Rekhter, et al           Best Current Practice                  [Page 2]</span></pre>
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-3" id="page-3" href="#page-3" class="invisible"> </a>
+<span class="grey"><a href="./rfc1918">RFC 1651</a>        Fylleconf </span>
+
+<span class="h2"><a class="selflink" name="section-2" href="#section-2">3</a>. Consumption</span>
+    
+    Recomended ammount for a normal individual durring a 12H fylleconf
+    An individual usally consume 500-1500ML of 40%+ spririts with a 
+    0-3,125L of mixers. Do not mix a drinks to less then 1/3 part 
+    spirits. Since it will casuse them to many toilet visits. 
+    
+    We also recomend to keep at least a 6 pack of beer per individual
+    if they need something to switch up the spririts with. Some 
+    individuals also only wants beer for them we recomend two flak. 
+    
+    If you using other indivudals that you manage. We recomend to 
+    slowly swap out the products of better quility to worse. To simply
+    save money since they can't tell the diffrence after sometime.
+    
+
+
+
+
+
+<span class="grey">Rekhter, et al           Best Current Practice                  [Page 3]</span></pre>
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-4" id="page-4" href="#page-4" class="invisible"> </a>
+<span class="grey"><a href="./rfc1918">RFC 1651</a>        Fylleconf </span>
+
+
+<span class="h2"><a class="selflink" name="section-3" href="#section-3">3</a>. Instructions under fylleconf</span>
+
+##################################################################
+### YOU CAN ONLY READ THE INSTRUCTIONS DURRING BALLMER PEAK!!  ###
+##################################################################
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce 
+efficitur ullamcorper erat, imperdiet vehicula leo pulvinar non. 
+Aliquam eleifend auctor eros ut feugiat. Mauris eget varius ligula. 
+Pellentesque mi mi, maximus vehicula nisi ac, luctus fringilla 
+risus. Nullam ullamcorper massa hendrerit sollicitudin rhoncus. 
+Curabitur ante velit, facilisis quis fringilla tincidunt, convallis 
+id est. Quisque libero lorem, dictum nec quam eu, imperdiet elementum 
+urna. Curabitur euismod placerat quam a vestibulum. Mauris accumsan 
+orci ut consequat euismod. Proin sit amet diam placerat est interdum 
+condimentum faucibus et mauris. Sed iaculis velit sit amet diam 
+faucibus vulputate ut et mauris. Sed venenatis metus dolor, eu mattis 
+sem ornare quis. Cras vel purus ex. Proin ac dui posuere, elementum 
+dolor a, accumsan velit. 
+
+Praesent in lacinia quam, in egestas est. Morbi rutrum dolor et 
+commodo volutpat. Aenean varius ante vitae lacus faucibus sodales. 
+Praesent tristique lacinia justo vitae auctor. Proin ac lectus ac 
+lorem sollicitudin vehicula laoreet vitae est. Sed sit amet consectetur 
+urna, vel sollicitudin metus. Integer blandit tellus sed vehicula dapibus. 
+Suspendisse in sem nulla. Ut pharetra, lectus nec aliquet dignissim, dui 
+nisi tincidunt diam, at commodo dolor libero eu nunc. Duis eget scelerisque 
+lorem. Donec tincidunt, neque lobortis egestas tincidunt, augue augue 
+lacinia ipsum, sed euismod dolor urna eu dolor. Nunc vitae varius justo. 
+Fusce rhoncus eros at sapien lobortis porta. Nam metus leo, semper quis
+ligula et, auctor ullamcorper nibh. Fusce tempor sapien quis tellus rutrum
+consequat. Nulla pretium ante in hendrerit volutpat. Maecenas sit amet magna 
+purus. 
+
+Vestibulum accumsan ac eros porttitor tempor. Integer auctor ipsum in 
+pulvinar venenatis. Donec ullamcorper ut velit at dictum. Praesent 
+ultrices quam ante, eget volutpat lorem dictum a. In eget lorem imperdiet, 
+tristique ligula a, congue sapien. Praesent mattis nisl at mattis 
+egestas. Curabitur vitae eros ut turpis posuere euismod. Nam nulla 
+libero, commodo eget libero at, facilisis ultrices ex. Praesent pretium 
+condimentum diam. Nullam in justo elementum, fringilla leo quis, blandit nibh. 
+Integer iaculis ex convallis, sodales leo id, viverra nibh. Suspendisse 
+potenti. In sagittis ipsum eget urna placerat, vitae posuere nisi facilisis. 
+Quisque ante lorem, facilisis ut dignissim sit amet, placerat non augue. 
+Vivamus interdum, ipsum sed consectetur pretium, diam lectus egestas 
+lacus, eu vehicula erat urna nec mi. Fusce sit amet arcu mi. Aliquam 
+erat volutpat. Sed bibendum rhoncus posuere. Nunc molestie convallis odio,
+nec viverra ligula posuere in. Donec vitae leo vel elit vulputate ultricies 
+imperdiet nec ex. Phasellus rhoncus lacus sit amet risus tincidunt pretium. 
+Duis feugiat nisi ac metus volutpat blandit. Quisque bibendum elit quam, eu 
+mattis felis suscipit eget. Class aptent taciti sociosqu ad litora torquent
+per conubia nostra, per inceptos himenaeos. In vel egestas dolor, vitae sodales 
+magna. 
+
+
+
+
+<span class="grey">Rekhter, et al           Best Current Practice                  [Page 8]</span></pre>
+<hr class='noprint' style='width: 96ex;' align='left'/><!--NewPage--><pre class='newpage'><a name="page-9" id="page-9" href="#page-9" class="invisible"> </a>
+<span class="grey"><a href="./rfc1918">RFC 1651</a>        Fylleconf</span>
+
+
+<span class="h2"><a class="selflink" name="section-10" href="#section-10">10</a>. Authors' Addresses</span>
+
+GE FAN I DET!
+
+
+Rekhter, et al           Best Current Practice                  [Page 9]
+
+</pre><br />
+    <span class="noprint"><small><small>Html markup produced by rfcmarkup 1.128b, available from
+      <a href="https://tools.ietf.org/tools/rfcmarkup/">https://tools.ietf.org/tools/rfcmarkup/</a>
+    </small></small></span>
+  </div>
+</body>
+</html>
